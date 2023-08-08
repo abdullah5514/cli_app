@@ -1,7 +1,7 @@
-# modules/data.rb
+# modules/client_data.rb
 require 'json'
 
-module Data
+module ClientData
   def self.load_data(file_path)
     JSON.parse(File.read(file_path))
   end

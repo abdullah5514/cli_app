@@ -2,7 +2,7 @@
 
 require 'json'
 require 'optparse'
-require_relative 'modules/data'
+require_relative 'modules/client_data'
 require_relative 'modules/search'
 require_relative 'modules/ui'
 
@@ -30,7 +30,7 @@ class ClientSearch
   end
 
   def run
-    clients_data = Data.load_data('client.json')
+    clients_data = ClientData.load_data('client.json')
 
     if @options[:search]
       search_query = @options[:search]
