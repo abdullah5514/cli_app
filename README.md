@@ -66,3 +66,8 @@ it can also work like --search or --duplicates
 
 The application uses a JSON file named `client.json` to store client data. Make sure this file is present in the same directory as `client_search.rb`.
 
+### Test cases
+
+To run the test cases run the below command in the root directory of the project.
+
+    rspec
