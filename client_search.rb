@@ -6,7 +6,7 @@ require_relative 'modules/data'
 require_relative 'modules/search'
 require_relative 'modules/ui'
 
-class CLIApp
+class ClientSearch
   def initialize
     @options = {}
     @parser = OptionParser.new do |opts|
@@ -51,5 +51,5 @@ class CLIApp
   end
 end
 
-app = CLIApp.new
+app = ClientSearch.new
 app.run
