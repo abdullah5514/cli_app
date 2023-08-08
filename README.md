@@ -17,18 +17,32 @@ This is a command-line application written in Ruby that allows you to search and
 
 3. Install the required gems using Bundler:
 
-
+   bundle install
+   
 ### Usage
 
-Run the application using the following commands:
+Search Clients
+To search for clients whose names partially match a given query, use the following command:
 
-1. To search for clients by name:
+ruby main.rb --s QUERY
 
-Replace `QUERY` with the search query (e.g., "John").
+For example, to search for clients with names containing "john":
 
-2. To find clients with duplicate emails:
+ruby main.rb --s john
 
-3. To exit the application, select the respective option when prompted.
+## Find Duplicates
+
+To identify clients with duplicate email addresses, use the following command:
+
+ruby main.rb --d
+
+## Aliases
+
+For your convenience, you can use the full command names as well:
+
+ruby main.rb --search QUERY
+ruby main.rb --duplicates
+
 
 ### Example
 
