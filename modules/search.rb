@@ -1,10 +1,10 @@
 # modules/search.rb
 module Search
-    def self.search_clients(query, field, data)
+    def self.fetch_clients(query, field, data)
       data.select { |client| client[field].downcase.include?(query.downcase) }
     end
   
-    def self.find_duplicate_emails(data)
+    def self.fetch_duplicate_emails(data)
       email_counts = Hash.new(0)
   
       data.each do |client|
