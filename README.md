@@ -6,7 +6,7 @@ This is a command-line application written in Ruby that allows you to search and
 
 ### Prerequisites
 
-- Ruby (>= 2.0)
+- Ruby (>= 2.0) (Tested with 2.7.5 and 3.1.2)
 - Bundler (for installing dependencies)
 
 ### Installation
@@ -25,25 +25,25 @@ This is a command-line application written in Ruby that allows you to search and
 
 To search for clients whose names partially match a given query, use the following command:
 
-ruby main.rb --s QUERY
+    ruby client_searchrb --s QUERY
 
 For example, to search for clients with names containing "john":
 
-ruby main.rb --s john
+    ruby client_search.rb --s john
 
 ## Find Duplicates
 
 To identify clients with duplicate email addresses, use the following command:
 
-ruby main.rb --d
+    ruby client_search.rb --d
 
 ## Aliases
 
 For your convenience, you can use the full command names as well:
 
-ruby main.rb --search QUERY
+    ruby client_search.rb --search QUERY
 
-ruby main.rb --duplicates
+    ruby client_search.rb --duplicates
 
 it can also work like --search or --duplicates
 
@@ -52,9 +52,17 @@ it can also work like --search or --duplicates
 
 1. Search for clients by name:
 
+    ruby client_search.rb --s john
+
 2. Find clients with duplicate emails:
+
+    ruby client_search.rb --d
+
+3. And to show both:
+
+    ruby client_search.rb --d --s john
 
 ### Data File
 
-The application uses a JSON file named `client.json` to store client data. Make sure this file is present in the same directory as `main.rb`.
+The application uses a JSON file named `client.json` to store client data. Make sure this file is present in the same directory as `client_search.rb`.
 
