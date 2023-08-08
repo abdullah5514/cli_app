@@ -34,7 +34,7 @@ class CLIApp
 
     if @options[:search]
       search_query = @options[:search]
-      matching_clients = Search::Search.fetch_clients(search_query, 'full_name', clients_data)
+      matching_clients = Search.fetch_clients(search_query, 'full_name', clients_data)
 
       if matching_clients.empty?
         puts "No clients found matching the search query."
@@ -45,7 +45,7 @@ class CLIApp
     end
 
     if @options[:duplicate]
-      duplicate_emails = Search::Search.fetch_duplicate_emails(clients_data)
+      duplicate_emails = Search.fetch_duplicate_emails(clients_data)
       UI.print_duplicate_clients(duplicate_emails, clients_data)
     end
   end
