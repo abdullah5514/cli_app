@@ -1,29 +1,55 @@
-# cli_app.rb
-require 'thor'
+#!/usr/bin/env ruby
+
+require 'json'
+require 'optparse'
 require_relative 'modules/data'
 require_relative 'modules/search'
 require_relative 'modules/ui'
 
-class CLIApp < Thor
-  desc 'search QUERY', 'Search clients by name'
-  def search(query)
-    clients_data = Data.load_data('client.json')
-    matching_clients = Search.search_clients(query, 'full_name', clients_data)
+class CLIApp
+  def initialize
+    @options = {}
+    @parser = OptionParser.new do |opts|
+      opts.banner = "Usage: clients.rb [options]"
 
-    if matching_clients.empty?
-      puts "No clients found matching the search query."
-    else
-      puts "Matching clients:"
-      UI.print_clients(matching_clients)
+      opts.on("--search QUERY", "Search clients by name") do |query|
+        @options[:search] = query
+      end
+
+      opts.on("--duplicate", "Find clients with duplicate emails") do
+        @options[:duplicate] = true
+      end
+
+      opts.on_tail("-h", "--help", "Show this message") do
+        puts opts
+        exit
+      end
     end
+
+    @parser.parse!
   end
 
-  desc 'duplicates', 'Find clients with duplicate emails'
-  def duplicates
+  def run
     clients_data = Data.load_data('client.json')
-    duplicate_emails = Search.find_duplicate_emails(clients_data)
-    UI.print_duplicate_clients(duplicate_emails, clients_data)
+
+    if @options[:search]
+      search_query = @options[:search]
+      matching_clients = Search.search_clients(search_query, 'full_name', clients_data)
+
+      if matching_clients.empty?
+        puts "No clients found matching the search query."
+      else
+        puts "Matching clients:"
+        UI.print_clients(matching_clients)
+      end
+    end
+
+    if @options[:duplicate]
+      duplicate_emails = Search.find_duplicate_emails(clients_data)
+      UI.print_duplicate_clients(duplicate_emails, clients_data)
+    end
   end
 end
 
-CLIApp.start
+app = CLIApp.new
+app.run

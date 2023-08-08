@@ -17,6 +17,7 @@ This is a command-line application written in Ruby that allows you to search and
 
 3. Install the required gems using Bundler:
 
+
 ### Usage
 
 Run the application using the following commands:
