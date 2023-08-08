@@ -21,7 +21,7 @@ This is a command-line application written in Ruby that allows you to search and
    
 ### Usage
 
-Search Clients
+## Search Clients
 
 To search for clients whose names partially match a given query, use the following command:
 
