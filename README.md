@@ -1,71 +1,41 @@
-# Flexible JSON Search Command-Line Application
+# Client Search CLI Application
 
-This is a command-line application that allows you to search through JSON datasets and perform various actions on the data. The application is designed to be modular, flexible, and scalable, with potential to expand its current features.
+This is a command-line application written in Ruby that allows you to search and analyze client data stored in a JSON file. You can search for clients by name and find clients with duplicate emails.
 
-## Features
+## Getting Started
 
-1. **Search by Dynamic Field:** You can search through JSON data by specifying which field to search. The application supports dynamic searches on different fields, not limited to just names.
+### Prerequisites
 
-2. **Find Duplicate Emails:** The application can identify clients with duplicate email addresses in the dataset and display the duplicates if any are found.
+- Ruby (>= 2.0)
+- Bundler (for installing dependencies)
 
-3. **Modular Architecture:** The application is organized into modules, making it easy to add new features or modify existing ones without affecting other parts of the application.
+### Installation
 
-4. **User-Friendly Interface:** The user interface module provides clear prompts and displays results in a human-readable format.
+1. Clone this repository to your local machine or download the source code.
 
-5. **Scalability Considerations:** The application is designed with scalability in mind, considering efficient search algorithms, caching, and potential database integration.
+2. Navigate to the project directory:
 
-## Usage
+3. Install the required gems using Bundler:
 
-1. **Installation:**
-   - Clone this repository: `git clone git@github.com:abdullah5514/cli_app.git`
-   - Install dependencies: `bundle install`
+### Usage
 
-2. **Running the Application:**
-   - Navigate to the project directory.
-   - Run the application: `ruby main.rb`
+Run the application using the following commands:
 
-3. **Commands:**
-   - Choose an action:
-     1. Search clients by a specific field (e.g., name, email).
-     2. Find clients with duplicate emails.
-     3. Exit the application.
+1. To search for clients by name:
 
-4. **Dynamic Search:**
-   - When searching, you can specify which field to search (e.g., "name", "email").
+Replace `QUERY` with the search query (e.g., "John").
 
-5. **API Support (Optional):**
-   - To add REST API support, extend the API module to handle incoming HTTP requests.
-   - Define routes to accept query parameters, such as `GET /query?q=<search-query>&field=<search-field>`.
+2. To find clients with duplicate emails:
 
-## Tests
+3. To exit the application, select the respective option when prompted.
 
-1. **Running Tests:**
-   - Run tests: `bundle exec rspec`
+### Example
 
-2. **Unit Tests:**
-   - Tests cover individual modules and functionalities.
-   - Mock data or JSON files are used for testing.
+1. Search for clients by name:
 
-3. **Integration Tests:**
-   - Tests ensure seamless interaction between modules.
+2. Find clients with duplicate emails:
 
-## Extending and Scaling
+### Data File
 
-1. **Dynamic Search:**
-   - Modify the search module to accept a field parameter for dynamic searches.
-
-2. **API Support (Optional):**
-   - Extend the API module to handle incoming requests and connect with the search module.
-
-3. **Scalability:**
-   - Consider efficient search algorithms, caching, and database integration.
-   - Monitor performance and consider auto-scaling techniques for increased demand.
-
-## Contributing
-
-We welcome contributions to enhance and expand the functionality of this application. Feel free to submit pull requests for new features, bug fixes, or improvements.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+The application uses a JSON file named `client.json` to store client data. Make sure this file is present in the same directory as `main.rb`.
 
