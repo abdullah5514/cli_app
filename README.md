@@ -21,7 +21,7 @@ This is a command-line application written in Ruby that allows you to search and
    
 ### Usage
 
-## Search Clients
+**Search Clients**
 
 To search for clients whose names partially match a given query, use the following command:
 
@@ -44,6 +44,8 @@ For your convenience, you can use the full command names as well:
 ruby main.rb --search QUERY
 
 ruby main.rb --duplicates
+
+it can also work like --search or --duplicates
 
 
 ### Example
